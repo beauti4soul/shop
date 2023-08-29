@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauti4Soul</title>
+    <link rel="icon" href="Untitled.webp">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #111;
+        padding: 20px;
+        text-align: center;
+    }
+    header h1 {
+        margin: 0;
+    }
+    header p {
+        font-style: italic;
+        line-height: 1.5;
+    }
+    section {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .product {
+        border: 1px solid #333;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #222;
+    }
+    .product h3 {
+        margin: 0;
+    }
+    .product p {
+        margin: 5px 0;
+    }
+    .add-to-cart {
+        background-color: #444;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .add-to-cart:hover {
+        background-color: #666;
+    }
+    #cart {
+        background-color: #111;
+        padding: 20px;
+        border-top: 1px solid #333;
+    }
+    #cart-total {
+        font-weight: bold;
+    }
+    #contact {
+        background-color: #111;
+        padding: 20px;
+        border-top: 1px solid #333;
+        text-align: center;
+    }
+    #contact p {
+        margin: 10px 0;
+    }
+    a {
+        color: #66ccff;
+    }
+    a:hover {
+        color: #99e6ff;
+    }
+    #products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 20px;
+    }
+
+    .product {
+        border: 1px solid #333;
+        padding: 10px;
+        background-color: #222;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .product h3 {
+        margin: 0;
+    }
+
+    .product p {
+        margin: 5px 0;
+    }
+    #cart-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #cart-button:hover {
+            background-color: #666;
+        }
+
+        #cart-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        #map-container {
+            margin-top: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+        #enlarged-image-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+#enlarged-image {
+    max-width: 80%;
+    max-height: 80%;
+    margin-top: 10vh;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+
+</style>
+<body>
+    <header>
+        <h1>Welcome to Beauti4Soul</h1>
+        <p>(608)-213-3492</p>
+        <img src="71174901152--24ACCE72-356E-454A-8E45-C73D65DE6B8A.JPG" style="height: 170px; width: 220px">
+        <img src="Untitled.webp" style="height: 170px; width: 120px">
+        <img src="IMG-8326.JPG" style="height: 170px; width: 220px">
+        <p>"Eat it. Drink it. Smoke it. Everything you need to ease the soul and the mind, tinctures and supplies sold as well. Delivery available!<br>
+        We heal the mind, body, and soul.<br>
+        Beauti4Soul is a black owned business that has been healing the wonderful souls of the people of Madison, Wisconsin. With knowledgeable staff and good vibes, we can assist you in finding absolutely anything you may need to help ease your mind, body, and soul, while healing your wounds from everyday life."</p>
+    </header>
+    <section id="products">
+     
+        <div class="product">
+            <img src="images\images2\2d32b7_20d084f64d8644ff836a70dc8b60b720_mv2.webp" alt="THC-O vape cartridge">
+            <h3>THC-O vape cartridge</h3>
+            <p>Price: $35.00</p>
+            <button class="add-to-cart" data-product="THC-O vape cartridge" data-price="35.00">Add to Cart</button>
+        </div>
+      
+        <div class="product">
+            <img src="images\images2\2d32b7_7d9a20bf245a4624824d67b0c1bcb77d_mv2.webp" alt="Upper Cut Air disposable rechargeable THC-JD (2g)">
+            <h3>Upper Cut Air disposable rechargeable THC-JD (2g)</h3>
+            <p>Price: $45.00</p>
+            <button class="add-to-cart" data-product="Upper Cut Air disposable rechargeable THC-JD (2g)" data-price="45.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\2d32b7_59d0262a21e845d191aff3e3ff6c5c9c_mv2.webp" alt="Runtz disposable rechargeable vape (1g)">
+            <h3>Runtz disposable rechargeable vape (1g)</h3>
+            <p>Price: $50.00</p>
+            <button class="add-to-cart" data-product="Runtz disposable rechargeable vape (1g)" data-price="50.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\2d32b7_8a143bcd3da444338e54aee0b22436e1_mv2.webp" alt="Flying Monkey disposable HHC sativa vape">
+            <h3>Flying Monkey disposable HHC sativa vape</h3>
+            <p>Price: $15.00</p>
+            <button class="add-to-cart" data-product="Flying Monkey disposable HHC sativa vape" data-price="5.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_697bbaa1c7c344c4a8ef8d4793478062_mv2.webp" alt="Beauti4soul sweetcarts disposable THC vape">
+            <h3>Beauti4soul sweetcarts disposable THC vape</h3>
+            <p>Price: $35.00</p>
+            <button class="add-to-cart" data-product="Beauti4soul sweetcarts disposable THC vape" data-price="35.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_504ac995f1f44cc3a2b2bc5b593bb11d_mv2.webp" alt="OOZE™ DISPOSABLE THC vape (1g)">
+            <h3>OOZE™ DISPOSABLE THC vape (1g)</h3>
+            <p>Price: $35.00</p>
+            <button class="add-to-cart" data-product="OOZE™ DISPOSABLE THC vape (1g)" data-price="35.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_add05f2266244869bba5c2f8f955df66_mv2.webp" alt="THC-O Resin cartridge">
+            <h3>THC-O Resin cartridge</h3>
+            <p>Price: $35.00</p>
+            <button class="add-to-cart" data-product="THC-O Resin cartridge" data-price="35.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_e381d557e79c4c46972c7d50092876cc_mv2.webp" alt="Rechargeable oil cartridge pen">
+            <h3>Rechargeable oil cartridge pen</h3>
+            <p>Price: $31.05</p>
+            <button class="add-to-cart" data-product="Rechargeable oil cartridge pen" data-price="31.05">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\2d32b7_b79bdc813fb1421da865852264fc0e23_mv2.webp" alt="Large Simpsons Lighter">
+            <h3>Large Simpsons Lighter</h3>
+            <p>Price: $7.00</p>
+            <button class="add-to-cart" data-product="Large Simpsons Lighter" data-price="7.00">Add to Cart</button>
+        </div>
+        
+        <div class="product">
+            <img src="images\2d32b7_ad44838aa63041279da858c7e04d43d7_mv2.webp" alt="Small Metal Pipe">
+            <h3>Small Metal Pipe (Attached Filter)</h3>
+            <p>Price: $15.00</p>
+            <button class="add-to-cart" data-product="Small Metal Pipe (Attached Filter)" data-price="15.00">Add to Cart</button>
+        </div>
+        
+        <div class="product">
+            <img src="images\2d32b7_2f8136fa44de4c569209be498fe8a0ca_mv2.webp" alt="One hitter pipe (cigarette color)">
+            <h3>One hitter pipe (cigarette color)</h3>
+            <p>Price: $10.00</p>
+            <button class="add-to-cart" data-product="One hitter pipe (cigarette color)" data-price="10.00">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\2d32b7_19879ab65ef14286a9a3a5a68563e3dc_mv2.webp" alt="THC gummies (1000mg) (10pc)">
+            <h3>THC gummies (1000mg) (10pc)</h3>
+            <p>Price: $25.00</p>
+            <button class="add-to-cart" data-product="THC gummies (1000mg) (10pc)" data-price="25.00">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\2d32b7_665dd858bbfd4a8abb581131015f525d_mv2.webp" alt="∆9 THC chocolate bar (150mg)">
+            <h3>∆9 THC chocolate bar (150mg)</h3>
+            <p>Price: $40.00</p>
+            <button class="add-to-cart" data-product="∆9 THC chocolate bar (150mg)" data-price="40.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\2d32b7_3b258fa6543e4d4ca9006a9e8a300b53_mv2.webp" alt="Infused canned drinks">
+            <h3>Infused canned drinks</h3>
+            <p>Price: $15.00</p>
+            <button class="add-to-cart" data-product="Infused canned drinks" data-price="15.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_4175e8b1df51468d9ecb004b05969df0_mv2.webp" alt="THC Caramel candy (100mg)">
+            <h3>THC Caramel candy (100mg)</h3>
+            <p>Price: $10.00</p>
+            <button class="add-to-cart" data-product="THC Caramel candy (100mg)" data-price="10.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_5e087197090b436e990d2e2bf3e77075_mv2.webp" alt="Liquid Loud (4 FL OZ.)(400mg)">
+            <h3>Liquid Loud (4 FL OZ.)(400mg)</h3>
+            <p>Price: $50.00</p>
+            <button class="add-to-cart" data-product="Liquid Loud (4 FL OZ.)(400mg)" data-price="50.00">Add to Cart</button>
+        </div>
+     
+        <div class="product">
+            <img src="images\2d32b7_e10d8868d79e47b9af0b42174404a09b_mv2.webp" alt="Beauti4soul inhouse THC gummies (1000mg) (10pc.)">
+            <h3>Beauti4soul inhouse THC gummies (1000mg) (10pc.)</h3>
+            <p>Price: $35.00</p>
+            <button class="add-to-cart" data-product="Beauti4soul inhouse THC gummies (1000mg) (10pc.)" data-price="35.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_9fb7a51252ca4e948463a6818474942c_mv2.webp" alt="Hemp wrap (tobacco free)(2 pk.)">
+            <h3>Hemp wrap (tobacco free)(2 pk.)</h3>
+            <p>Price: $1.59</p>
+            <button class="add-to-cart" data-product="Hemp wrap (tobacco free)(2 pk.)" data-price="1.59">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\2d32b7_d3d637c7dc764f9aa3decb56b0cbfa2c_mv2.webp" alt="Backwoods selection (1pc.)">
+            <h3>Backwoods selection (1pc.)
+            </h3>
+            <p>Price: $2.50</p>
+            <button class="add-to-cart" data-product="Backwoods selection (1pc.)" data-price="2.50">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\2d32b7_0fc3fa3e4f1a47f6b4410582787cc919_mv2.webp" alt="Delta-10 THC pre-roll">
+            <h3>Delta-10 THC pre-roll</h3>
+            <p>Price: $15.00</p>
+            <button class="add-to-cart" data-product="Delta-10 THC pre-roll" data-price="15.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\2d32b7_14869e5c91c84f8782caf7218eef4322_mv2.webp" alt="THC free Dietary supplements (12pc.)">
+            <h3>THC free Dietary supplements (12pc.)
+            </h3>
+            <p>Price: $15.00</p>
+            <button class="add-to-cart" data-product="THC free Dietary supplements (12pc.)" data-price="15.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\2d32b7_5579e69cd6744319b13418a6534d5c1b_mv2.webp" alt="Ronsonol® Lighter Fluid (5 fl. Oz.)">
+            <h3>Ronsonol® Lighter Fluid (5 fl. Oz.)</h3>
+            <p>Price: $10.00</p>
+            <button class="add-to-cart" data-product="Ronsonol® Lighter Fluid (5 fl. Oz.)" data-price="10.00">Add to Cart</button>
+        </div>
+
+     
+      
+
+        <div class="product">
+            <img src="images\images2\2d32b7_09ba88b71a334978bca52e293d832c13_mv2.webp" alt="Total Detox detox concentrate">
+            <h3>Total Detox detox concentrate</h3>
+            <p>Price: $15.00</p>
+            <button class="add-to-cart" data-product="Total Detox detox concentrate" data-price="15.00">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\images2\2d32b7_b48b01cc1a0448ee91ee9acdd09a86b7_mv2.webp" alt="TWIST E-liquid">
+            <h3>TWIST E-liquid</h3>
+            <p>Price: $20.00</p>
+            <button class="add-to-cart" data-product="TWIST E-liquid" data-price="20.00">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images\images2\2d32b7_1297077da51d4556ba201723390fc13e_mv2.webp" alt="Rescue Detox energy herbal supplement">
+            <h3>Rescue Detox energy herbal supplement</h3>
+            <p>Price: $25.00</p>
+            <button class="add-to-cart" data-product="Rescue Detox energy herbal supplement" data-price="25.00">Add to Cart</button>
+        </div>
+    
+       
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_c75638382d8f4f7c8547844f29454c83_mv2.webp" alt="CBD flour (1g)">
+            <h3>CBD flour (1g)</h3>
+            <p>Price: $10.00</p>
+            <button class="add-to-cart" data-product="CBD flour (1g)" data-price="10.00">Add to Cart</button>
+        </div>
+   
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_009a4bbf632240269cd2758879125f99_mv2.webp" alt="CBD Tincture (1 Oz.)(1000mg)">
+            <h3>CBD Tincture (1 Oz.)(1000mg)</h3>
+            <p>Price: $59.00</p>
+            <button class="add-to-cart" data-product="CBD Tincture (1 Oz.)(1000mg)" data-price="59.00">Add to Cart</button>
+        </div>
+      
+        <div class="product">
+            <img src="images\images2\images3\2d32b7_feb8fcbf563a48c2af388dd3f87cad8a_mv2.webp" alt="CBD Sports Roll-on (1200mg)">
+            <h3>CBD Sports Roll-on (1200mg)</h3>
+            <p>Price: $30.00</p>
+            <button class="add-to-cart" data-product="CBD Sports Roll-on (1200mg)" data-price="30.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\images2\2d32b7_addc780b47fc4da1b88005b399e1f8c7_mv2.webp" alt="Stream® Fetish Urine">
+            <h3>Stream® Fetish Urine</h3>
+            <p>Price: $25.00</p>
+            <button class="add-to-cart" data-product="Stream® Fetish Urine" data-price="25.00">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images\2d32b7_f668832efc434139b0870a4fc84e910a_mv2.webp" alt="Pink Cone with Stick">
+            <h3>Pink Cone with Stick</h3>
+            <p>Price: $1.25</p>
+            <button class="add-to-cart" data-product="Pink Cone with Stick" data-price="1.25">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="512x512bb.jpg" alt="Delivery!!!">
+            <h3>Delivery!!!</h3>
+            <p>Price: $10.00</p>
+            <button class="add-to-cart" data-product="Delivery!!!" data-price="10.00">Add to Cart</button>
+        </div>
+        
+        <!-- Repeat the above structure for adding products -->
+        
+        <div id="enlarged-image-container">
+            <img id="enlarged-image" src="" alt="">
+            <span id="close-enlarged-image" class="close-button">&times;</span>
+        </div>
+        
+    </section>
+    
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <p>Total: <span id="cart-total">$0.00</span></p>
+        <b>Call (608)-213-3492 to place your order. Payment for deliveries must be cash or Cashapp. Please specify for product options or flavors (if applicable). <u>Delivery hours extend past closing</u>!!!</b>
+    </section>
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p>Address: 651 South Park St., Madison, Wisconsin 53715</p>
+        <p>Hours: 10:00 AM - 6:00 PM (Closed on Sundays). Delivery hours extend past closing.</p>
+        <p>Phone: (608)-213-3492</p>
+        <p>Email: <a href="mailto:b4b4souls@gmail.com">b4b4souls@gmail.com</a></p>
+        <a href="https://www.instagram.com/4soulcannibas/?igshid=MzNlNGNkZWQ4Mg%3D%3D" target="_blank">Instagram</a>
+
+        <!-- Add the Google Maps iframe here -->
+        <div id="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2916.6938358274696!2d-89.39616018455423!3d43.045318779148206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8807ac1480c5a1d3%3A0x69de6d9d276b7035!2s651%20S%20Park%20St%2C%20Madison%2C%20WI%2053715%2C%20USA!5e0!3m2!1sen!2s!4v1630012593375!5m2!1sen!2s" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </section>
+
+    <script>
+        const products = document.querySelectorAll('.product .add-to-cart');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        let cart = [];
+    
+        products.forEach(product => {
+            product.addEventListener('click', addToCart);
+        });
+    
+        function addToCart(event) {
+            const productName = event.target.getAttribute('data-product');
+            const productPrice = parseFloat(event.target.getAttribute('data-price'));
+            cart.push({ name: productName, price: productPrice });
+            updateCart();
+        }
+    
+        function updateCart() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `${item.name} - $${item.price.toFixed(2)} <button class="remove-from-cart" data-index="${index}">Remove</button>`;
+                cartItems.appendChild(listItem);
+                total += item.price;
+            });
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+    
+            // Add event listeners to "Remove" buttons
+            const removeButtons = document.querySelectorAll('.remove-from-cart');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', removeFromCart);
+            });
+        }
+    
+        function removeFromCart(event) {
+            const index = parseInt(event.target.getAttribute('data-index'));
+            cart.splice(index, 1);
+            updateCart();
+        }
+    </script>
+     <script>
+const products1 = document.querySelectorAll('.product');
+const enlargedImageContainer = document.getElementById('enlarged-image-container');
+const enlargedImage = document.getElementById('enlarged-image');
+const closeEnlargedImage = document.getElementById('close-enlarged-image');
+
+products1.forEach(product => {
+    const image = product.querySelector('img');
+    const imageUrl = image.getAttribute('src');
+
+    image.addEventListener('click', () => {
+        enlargedImage.src = imageUrl;
+        enlargedImageContainer.style.display = 'block';
+    });
+});
+
+closeEnlargedImage.addEventListener('click', () => {
+    enlargedImageContainer.style.display = 'none';
+});
+
+enlargedImageContainer.addEventListener('click', event => {
+    if (event.target === enlargedImageContainer) {
+        enlargedImageContainer.style.display = 'none';
+    }
+});
+
+    </script>
+       <a id="cart-button" href="#cart">
+        Jump to Cart
+    </a>
+    ©
+</body>
+</html>
